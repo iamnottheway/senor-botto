@@ -58,9 +58,29 @@ def parse_user_message(recipient_id,text):
         if "greetings" in keys:
             greet_list = ["Hola Amigo","Oye Amigo","Hey","Hi"]
             message = "{}".format(greet_list[random.randint(0,len(greet_list)-1)])
-    # send the message
-    bot.send_text_message(recipient_id, message)
+            bot.send_text_message(recipient_id, message)
+        else:
+            # send a button message, so that the user will have options
+            btn_payload = [
+                {
+                    "type":"postback",
+                    "title":"say Hola",
+                    "payload":"USER_DEFINED_PAYLOAD"
+                 },{
+                    "type":"postback",
+                    "title":"Taco places in town!",
+                    "payload":"USER_DEFINED_PAYLOAD"
+                  },{
+                    "type":"postback",
+                    "title":"Taco recipies",
+                    "payload":"USER_DEFINED_PAYLOAD"
+                  }
 
+            ]
+            bot.send_button_message(recipient_id = recipient_id,
+                    text = "Select from here amigo",
+                    buttons = btn_payload
+            )
 
 if __name__ == '__main__':
     app.run(debug=True,port=8080)

@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask,request,render_template
 from pymessenger.bot import Bot
 from wit import Wit
 from creds import credentials
@@ -16,7 +16,7 @@ bot = Bot(ACCESS_TOKEN)
 # landing page for the bot
 @app.route('/')
 def index():
-    return "ok"
+    return render_template("index.html")
 
 # verify fb's request with the token
 # this is a one-time verification, so every time you open the page it'll show an error

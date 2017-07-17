@@ -5,7 +5,7 @@ import requests
 
 credentials = {
                 # zomato api key to access taco resturant data
-                "API_KEY":"e2a77aab96b73139c0d6c992dc0ba9ce"
+                "API_KEY":""
 }
 
 class ZomatoApi():

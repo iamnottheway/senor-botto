@@ -1,19 +1,23 @@
 from flask import Flask,request,render_template
 from pymessenger.bot import Bot
-#from quick_replies import fb_quickReplies
 from wit import Wit
 from creds import credentials
 import random
+from zomatowrap import ZomatoApi
 
 # import credential keys
 ACCESS_TOKEN = credentials['ACCESS_TOKEN']
 VERIFY_TOKEN = credentials['VERIFY_TOKEN']
 WIT_ACCESS_TOKEN = credentials['WIT_ACCESS_TOKEN']
+ZOMATO_KEY = credentials['ZOMATO_API']
 
 app = Flask(__name__)
 witbot = Wit(access_token=WIT_ACCESS_TOKEN)
 # set up messenger wrapper
 bot = Bot(ACCESS_TOKEN)
+# set up zomato api
+zomApi = ZomatoApi(ZOMATO_KEY)
+
 # landing page for the bot
 @app.route('/')
 def index():
@@ -64,17 +68,56 @@ def parse_user_message(recipient_id,text):
             # show taco images and locations
             message = "This should calm you down🌮🌮"
             bot.send_text_message(recipient_id, message)
-        elif "search_taco" in keys:
-            # find the taco places
-            if "best" in keys:
-                message = "Here are the best taco places in town!🌮🌮"
-            else:
-                message = "Here's what I found in your city🌮"
-            bot.send_text_message(recipient_id, message)
+        elif "search_taco" in keys or "taco_shop" in keys:
+            # show the taco places
+            #Show_taco_location(recipient_id,keys=keys)
         else:
             # show the chat-menu
             message = "I couldn't understand you!"
             bot.send_text_message(recipient_id, message)
+
+
+def Show_taco_location(recipient_id,keys):
+    # this function sends the taco shops near the user
+    if keys is None:
+        return ""
+
+        #zom_resp = zomApi.GetResturantCollections()
+        #gbtn_title = "Cake"#zom_resp['collections'][1]['title']
+        #gbtn_imgurl = "http://www.primrose-bakery.co.uk/shop/content/images/thumbs/0000362_chocolate-layer-cake.jpeg"#zom_resp['collections'][1]['image_url']
+        #gbtn_weburl = "somefood.com"#zom_resp['collections'][1]['url']
+        # returns resturants in a city
+        #bot.send_generic_message(recipient_id, taco_payload)
+
+    if "best" in keys:
+        message = "Here are the best taco places in town!🌮🌮"
+        bot.send_text_message(recipient_id, message)
+    else:
+        message = "Here's what I found in your city🌮"
+        bot.send_text_message(recipient_id, message)
+
+    bot.send_generic_message(recipient_id,
+        elements = [
+           {
+            "title":"Cake",
+            "image_url":"http://www.primrose-bakery.co.uk/shop/content/images/thumbs/0000362_chocolate-layer-cake.jpeg",
+            "subtitle":"We\'ve got the right cake for everyone.",
+            "default_action": {
+              "type": "web_url",
+              "url": "www.eatcake.com",
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall",
+              "fallback_url": ""
+            },
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"{}".format(gbtn_weburl),
+                "title":"View in Website"
+              },
+            ]
+          }
+        ])
 
 
 if __name__ == '__main__':

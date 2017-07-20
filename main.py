@@ -4,6 +4,7 @@ from wit import Wit
 from creds import credentials
 import random
 from zomatowrap import ZomatoApi
+import quick_replies
 
 # import credential keys
 ACCESS_TOKEN = credentials['ACCESS_TOKEN']
@@ -68,9 +69,10 @@ def parse_user_message(recipient_id,text):
             # show taco images and locations
             message = "This should calm you down🌮🌮"
             bot.send_text_message(recipient_id, message)
+            Show_taco_location(recipient_id,keys=keys)
         elif "search_taco" in keys or "taco_shop" in keys:
             # show the taco places
-            #Show_taco_location(recipient_id,keys=keys)
+            Show_taco_location(recipient_id,keys=keys)
         else:
             # show the chat-menu
             message = "I couldn't understand you!"
@@ -90,34 +92,29 @@ def Show_taco_location(recipient_id,keys):
         #bot.send_generic_message(recipient_id, taco_payload)
 
     if "best" in keys:
-        message = "Here are the best taco places in town!🌮🌮"
+        message = "testing taco"
         bot.send_text_message(recipient_id, message)
     else:
-        message = "Here's what I found in your city🌮"
+        message = "testing : else"
         bot.send_text_message(recipient_id, message)
+        reply_payload = [
+            {
+                "content_type":"text",
+                "title":"Show me more",
+                "payload":"SHOW"
+            },{
+                "content_type":"text",
+                "title":"not sure",
+                "payload":"LESS"
+            }
+        ]
 
-    bot.send_generic_message(recipient_id,
-        elements = [
-           {
-            "title":"Cake",
-            "image_url":"http://www.primrose-bakery.co.uk/shop/content/images/thumbs/0000362_chocolate-layer-cake.jpeg",
-            "subtitle":"We\'ve got the right cake for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "www.eatcake.com",
-              "messenger_extensions": true,
-              "webview_height_ratio": "tall",
-              "fallback_url": ""
-            },
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"{}".format(gbtn_weburl),
-                "title":"View in Website"
-              },
-            ]
-          }
-        ])
+        quick_replies.send_quickreply(fb_token = ACCESS_TOKEN,
+            user_id = recipient_id,
+            text = "what do you want to do?",
+            reply_payload = reply_payload,
+        )
+        bot.send_text_message(recipient_id, "message")
 
 
 if __name__ == '__main__':

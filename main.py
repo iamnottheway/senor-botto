@@ -62,8 +62,9 @@ def parse_user_message(recipient_id,text):
     if 'entities' in witresp.keys():
         keys = witresp['entities'].keys()
         if "greetings" in keys:
-            greet_list = ["Hola Amigo","Oye Amigo","Hey","Hi"]
-            message = "{}".format(greet_list[random.randint(0,len(greet_list)-1)])
+            greet_list = ["Hola Amigo","Oye Amigo","Hello","Hey","Hi"]
+            Botresp = ",how can I help you?"
+            message = "{}".format(greet_list[random.randint(0,len(greet_list)-1)]) + Botresp
             bot.send_text_message(recipient_id, message)
         elif "taco" in keys:
             # show taco images and locations
@@ -83,39 +84,32 @@ def Show_taco_location(recipient_id,keys):
     # this function sends the taco shops near the user
     if keys is None:
         return ""
-
-        #zom_resp = zomApi.GetResturantCollections()
-        #gbtn_title = "Cake"#zom_resp['collections'][1]['title']
-        #gbtn_imgurl = "http://www.primrose-bakery.co.uk/shop/content/images/thumbs/0000362_chocolate-layer-cake.jpeg"#zom_resp['collections'][1]['image_url']
-        #gbtn_weburl = "somefood.com"#zom_resp['collections'][1]['url']
-        # returns resturants in a city
-        #bot.send_generic_message(recipient_id, taco_payload)
-
     if "best" in keys:
-        message = "testing taco"
-        bot.send_text_message(recipient_id, message)
+        message = "tacocoo"
+        #bot.send_text_message(recipient_id, message)
     else:
-        message = "testing : else"
-        bot.send_text_message(recipient_id, message)
         reply_payload = [
             {
                 "content_type":"text",
-                "title":"Show me more",
-                "payload":"SHOW"
+                "title":"eat",
+                "payload":"eating"
             },{
                 "content_type":"text",
-                "title":"not sure",
-                "payload":"LESS"
+                "title":"read about tacos",
+                "payload":"reading"
+            },
+            {
+                "content_type":"text",
+                "title":"memes",
+                "payload":"NOTHING"
             }
         ]
 
-        quick_replies.send_quickreply(fb_token = ACCESS_TOKEN,
+        quick_replies.send_quickreply(token = ACCESS_TOKEN,
             user_id = recipient_id,
             text = "what do you want to do?",
             reply_payload = reply_payload,
         )
-        bot.send_text_message(recipient_id, "message")
-
 
 if __name__ == '__main__':
     app.run(debug=True,port=8080)

@@ -1,23 +1,22 @@
 
 
-import requests
+#  utility file for messenger bot
 
-def send_quickreply(fb_token,user_id,text,reply_payload):
-    # url parameters
-    headers = {
-        "access_token":"{}".format(fb_token),
+import requests
+import json
+
+def send_quickreply(token,user_id,text,reply_payload):
+
+    params = {
+        "access_token":token,
 
     }
-    # quick replies payload
-    payload = {
-      "recipient":{
-        "id":"{}".format(user_id)
-      },
+    payload = json.dumps({
+      "recipient":{"id":user_id,},
       "message":{
         "text":"{}".format(text),
         "quick_replies":reply_payload,
       }
-    }
-    url = "https://graph.facebook.com/v2.6/me/messages"
-    requests.post(url,headers=headers,data=payload)
-
+    })
+    requests.post("https://graph.facebook.com/v2.6/me/messages",params=params,
+                data=payload,headers={'Content-type': 'application/json'})

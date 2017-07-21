@@ -74,42 +74,46 @@ def parse_user_message(recipient_id,text):
         elif "search_taco" in keys or "taco_shop" in keys:
             # show the taco places
             Show_taco_location(recipient_id,keys=keys)
+        elif "meme" in keys:
+            bot.send_text_message(recipient_id, "haha")
         else:
-            # show the chat-menu
+            # show the options and an error message
             message = "I couldn't understand you!"
             bot.send_text_message(recipient_id, message)
+            show_quick_replies(recipient_id)
 
+
+def show_quick_replies(recipient_id):
+    reply_payload = [
+        {
+            "content_type":"text",
+            "title":"eat",
+            "payload":"eating"
+        },{
+            "content_type":"text",
+            "title":"read about tacos",
+            "payload":"reading"
+        },
+        {
+            "content_type":"text",
+            "title":"memes",
+            "payload":"meme"
+        }
+    ]
+    quick_replies.send_quickreply(token = ACCESS_TOKEN,
+        user_id = recipient_id,
+        text = "what do you want to do?",
+        reply_payload = reply_payload,
+    )
 
 def Show_taco_location(recipient_id,keys):
     # this function sends the taco shops near the user
+    # zom api sends request to get all the taco shops
     if keys is None:
         return ""
-    if "best" in keys:
-        message = "tacocoo"
-        #bot.send_text_message(recipient_id, message)
-    else:
-        reply_payload = [
-            {
-                "content_type":"text",
-                "title":"eat",
-                "payload":"eating"
-            },{
-                "content_type":"text",
-                "title":"read about tacos",
-                "payload":"reading"
-            },
-            {
-                "content_type":"text",
-                "title":"memes",
-                "payload":"NOTHING"
-            }
-        ]
+    message = "tacocoo"
+    bot.send_text_message(recipient_id, message)
 
-        quick_replies.send_quickreply(token = ACCESS_TOKEN,
-            user_id = recipient_id,
-            text = "what do you want to do?",
-            reply_payload = reply_payload,
-        )
 
 if __name__ == '__main__':
     app.run(debug=True,port=8080)

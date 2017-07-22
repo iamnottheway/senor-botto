@@ -4,7 +4,7 @@ from wit import Wit
 from creds import credentials
 import random
 from zomatowrap import ZomatoApi
-import quick_replies
+import botutils
 
 # import credential keys
 ACCESS_TOKEN = credentials['ACCESS_TOKEN']
@@ -63,7 +63,7 @@ def parse_user_message(recipient_id,text):
         keys = witresp['entities'].keys()
         if "greetings" in keys:
             greet_list = ["Hola Amigo","Oye Amigo","Hello","Hey","Hi"]
-            Botresp = ",how can I help you?"
+            Botresp = ", how can I help you?🤖🌮"
             message = "{}".format(greet_list[random.randint(0,len(greet_list)-1)]) + Botresp
             bot.send_text_message(recipient_id, message)
         elif "taco" in keys:
@@ -75,15 +75,35 @@ def parse_user_message(recipient_id,text):
             # show the taco places
             Show_taco_location(recipient_id,keys=keys)
         elif "meme" in keys:
-            bot.send_text_message(recipient_id, "haha")
+            bot.send_text_message(recipient_id, "Okay! This is what I found.👀🎞")
+            send_funny_gif(recipient_id)
+            # show the show more button and no thanks button
+            show_more_meme_payload = [
+                {
+                    "content_type":"text",
+                    "title":"show more",
+                    "payload":"meme"
+                },
+                {
+                    "content_type":"text",
+                    "title":"no thanks",
+                    "payload":"nomeme"
+                }
+            ]
+            botutils.send_quickreply(token = ACCESS_TOKEN,
+                user_id = recipient_id,
+                text = "what next?",
+                reply_payload = show_more_meme_payload,
+            )
+        elif "nomeme" in keys:
+            bot.send_text_message(recipient_id, "Okay cool! I'll make you laugh someother time")
         else:
             # show the options and an error message
-            message = "I couldn't understand you!"
-            bot.send_text_message(recipient_id, message)
-            show_quick_replies(recipient_id)
+            show_quick_replies(recipient_id,"Sorry, I didn't get you! Select something from the options below")
 
 
-def show_quick_replies(recipient_id):
+def show_quick_replies(recipient_id,quick_reply_message):
+    # this is shown when the bot couldnt understand the user
     reply_payload = [
         {
             "content_type":"text",
@@ -100,9 +120,9 @@ def show_quick_replies(recipient_id):
             "payload":"meme"
         }
     ]
-    quick_replies.send_quickreply(token = ACCESS_TOKEN,
+    botutils.send_quickreply(token = ACCESS_TOKEN,
         user_id = recipient_id,
-        text = "what do you want to do?",
+        text = "{}".format(quick_reply_message),
         reply_payload = reply_payload,
     )
 
@@ -114,6 +134,10 @@ def Show_taco_location(recipient_id,keys):
     message = "tacocoo"
     bot.send_text_message(recipient_id, message)
 
+def send_funny_gif(recipient_id):
+    # select a gif at random and send
+    image_url_list = botutils.search_gifs(credentials['TENOR_API'],"taco")
+    bot.send_image_url(recipient_id, image_url_list[random.randint(0,len(image_url_list)-1)])
 
 if __name__ == '__main__':
     app.run(debug=True,port=8080)

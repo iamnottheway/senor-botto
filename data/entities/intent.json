@@ -1,0 +1,72 @@
+{
+                                                                                                                        "data" : {
+                                                                                                                          "lookups" : [
+                                                                                                                            "free-text",
+                                                                                                                            "keywords",
+                                                                                                                            "trait"
+                                                                                                                          ],
+                                                                                                                          "name" : "intent",
+                                                                                                                          "lang" : "en",
+                                                                                                                          "exotic" : false,
+                                                                                                                          "id" : "intent",
+                                                                                                                          "values" : [
+                                                                                                                            {
+                                                                                                                              "value" : "BestTacoShop"
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "How are you?",
+                                                                                                                              "expressions" : [
+                                                                                                                                "How are you?"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "ShowMeme",
+                                                                                                                              "expressions" : [
+                                                                                                                                "Make me laugh",
+                                                                                                                                "Show me something funny"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "askBotsStory"
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "askWellness"
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "askingOut"
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "curse"
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "hungry"
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "make me laugh",
+                                                                                                                              "expressions" : [
+                                                                                                                                "make me laugh"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "show me some place I can find food",
+                                                                                                                              "expressions" : [
+                                                                                                                                "show me some place I can find food"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "show me something funny",
+                                                                                                                              "expressions" : [
+                                                                                                                                "show me something funny"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "showTacoLoc"
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "vulger"
+                                                                                                                            }
+                                                                                                                          ],
+                                                                                                                          "doc" : "User-defined entity",
+                                                                                                                          "builtin" : false
+                                                                                                                        }
+                                                                                                                      }

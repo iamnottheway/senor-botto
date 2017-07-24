@@ -1,0 +1,28 @@
+{
+                                                                                                                        "data" : {
+                                                                                                                          "lookups" : [
+                                                                                                                            "free-text",
+                                                                                                                            "keywords"
+                                                                                                                          ],
+                                                                                                                          "name" : "nomeme",
+                                                                                                                          "lang" : "en",
+                                                                                                                          "exotic" : false,
+                                                                                                                          "id" : "nomeme",
+                                                                                                                          "values" : [
+                                                                                                                            {
+                                                                                                                              "value" : "nomeme",
+                                                                                                                              "expressions" : [
+                                                                                                                                "nomeme"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "nomemes",
+                                                                                                                              "expressions" : [
+                                                                                                                                "nomemes"
+                                                                                                                              ]
+                                                                                                                            }
+                                                                                                                          ],
+                                                                                                                          "doc" : "User-defined entity",
+                                                                                                                          "builtin" : false
+                                                                                                                        }
+                                                                                                                      }

@@ -1,0 +1,9 @@
+{
+                                                                                                                        "version" : 20160513,
+                                                                                                                        "zip-command" : "zip senortaco.zip senortaco/app.json senortaco/entities/*.json senortaco/actions.json senortaco/stories.json senortaco/expressions.json",
+                                                                                                                        "data" : {
+                                                                                                                          "name" : "senortaco",
+                                                                                                                          "description" : "",
+                                                                                                                          "lang" : "en"
+                                                                                                                        }
+                                                                                                                      }

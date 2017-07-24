@@ -1,0 +1,58 @@
+{
+                                                                                                                        "data" : {
+                                                                                                                          "lookups" : [
+                                                                                                                            "free-text",
+                                                                                                                            "keywords"
+                                                                                                                          ],
+                                                                                                                          "name" : "food",
+                                                                                                                          "lang" : "en",
+                                                                                                                          "exotic" : false,
+                                                                                                                          "id" : "food",
+                                                                                                                          "values" : [
+                                                                                                                            {
+                                                                                                                              "value" : "I'm hungry",
+                                                                                                                              "expressions" : [
+                                                                                                                                "I'm hungry"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "crazy",
+                                                                                                                              "expressions" : [
+                                                                                                                                "crazy"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "eat",
+                                                                                                                              "expressions" : [
+                                                                                                                                "eat"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "food",
+                                                                                                                              "expressions" : [
+                                                                                                                                "food"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "hungry",
+                                                                                                                              "expressions" : [
+                                                                                                                                "hungry"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "taco",
+                                                                                                                              "expressions" : [
+                                                                                                                                "taco"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "tacos",
+                                                                                                                              "expressions" : [
+                                                                                                                                "tacos"
+                                                                                                                              ]
+                                                                                                                            }
+                                                                                                                          ],
+                                                                                                                          "doc" : "User-defined entity",
+                                                                                                                          "builtin" : false
+                                                                                                                        }
+                                                                                                                      }

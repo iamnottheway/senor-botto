@@ -1,0 +1,70 @@
+{
+                                                                                                                        "data" : {
+                                                                                                                          "lookups" : [
+                                                                                                                            "free-text",
+                                                                                                                            "keywords"
+                                                                                                                          ],
+                                                                                                                          "name" : "badword",
+                                                                                                                          "lang" : "en",
+                                                                                                                          "exotic" : false,
+                                                                                                                          "id" : "badword",
+                                                                                                                          "values" : [
+                                                                                                                            {
+                                                                                                                              "value" : "bitch",
+                                                                                                                              "expressions" : [
+                                                                                                                                "bitch"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "cunt",
+                                                                                                                              "expressions" : [
+                                                                                                                                "cunt"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "dumb fuck",
+                                                                                                                              "expressions" : [
+                                                                                                                                "dumb fuck"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "dumbfuck",
+                                                                                                                              "expressions" : [
+                                                                                                                                "dumbfuck"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "fuck",
+                                                                                                                              "expressions" : [
+                                                                                                                                "fuck"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "nigga",
+                                                                                                                              "expressions" : [
+                                                                                                                                "nigga"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "nigger",
+                                                                                                                              "expressions" : [
+                                                                                                                                "nigger"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "pussy",
+                                                                                                                              "expressions" : [
+                                                                                                                                "pussy"
+                                                                                                                              ]
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                              "value" : "whore",
+                                                                                                                              "expressions" : [
+                                                                                                                                "whore"
+                                                                                                                              ]
+                                                                                                                            }
+                                                                                                                          ],
+                                                                                                                          "doc" : "User-defined entity",
+                                                                                                                          "builtin" : false
+                                                                                                                        }
+                                                                                                                      }

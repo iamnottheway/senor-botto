@@ -1,0 +1,1061 @@
+{
+                                                                                                                        "data" : [
+                                                                                                                          {
+                                                                                                                            "text" : "Any suggestions for a taco shop?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 22,
+                                                                                                                                "end" : 26
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "HELP ME!!!"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Hey! How are you?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "greetings",
+                                                                                                                                "value" : "\"true\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"How are you?\"",
+                                                                                                                                "start" : 5,
+                                                                                                                                "end" : 17
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Hey! Where can I eat tacos?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "greetings",
+                                                                                                                                "value" : "\"true\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 21,
+                                                                                                                                "end" : 26
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Hola, where can I have some tacos?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "greetings",
+                                                                                                                                "value" : "\"true\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 28,
+                                                                                                                                "end" : 33
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "I NEED HELP!!!"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "I need food",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"hungry\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "I need help"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "I need something to eat",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"eat\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 20,
+                                                                                                                                "end" : 23
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "I want some help"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "I want to eat tacos",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"eat\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 10,
+                                                                                                                                "end" : 13
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 14,
+                                                                                                                                "end" : 19
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "I want to take my gf to a nice taco place, not sure where to find one.",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 31,
+                                                                                                                                "end" : 35
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "I'm hungry",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"hungry\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "If you were  women I'd fuck you",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "badword",
+                                                                                                                                "value" : "\"fuck\"",
+                                                                                                                                "start" : 23,
+                                                                                                                                "end" : 27
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "If you were a human, would you go out with me?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askingOut\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "If you were human, would you take me out?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askingOut\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "If you were real, would you fuck me?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "badword",
+                                                                                                                                "value" : "\"fuck\"",
+                                                                                                                                "start" : 28,
+                                                                                                                                "end" : 32
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "If you were real, would you go out with me",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askingOut\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "If you were real, would you suck my pussy?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Make me laugh",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"meme\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 13
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Make my dog laugh",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"ShowMeme\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Make my gf laugh. She thinks you aren't funny enough",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"ShowMeme\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "My gf loves tacos. Where can I find them?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 12,
+                                                                                                                                "end" : 17
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "My girlfriend whats tacos, where can I find it?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 20,
+                                                                                                                                "end" : 25
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Senor, where can I eat tacos?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 23,
+                                                                                                                                "end" : 28
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Show me something funny",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"meme\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 23
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Show me the taco places around me"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "Take me out",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askingOut\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "anything to eat?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"eat\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 12,
+                                                                                                                                "end" : 15
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "best taco places in NY",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 5,
+                                                                                                                                "end" : 9
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "bitch please!!!",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "can I cum in your mouth",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"vulger\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "can i get some help"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "can you tell me where I can find tacos?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 33,
+                                                                                                                                "end" : 38
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "come on entertain me"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "cum on me",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"vulger\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "cum on my boobs",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"vulger\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "cum on my tits",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"vulger\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "entertain me"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "find taco",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 5,
+                                                                                                                                "end" : 9
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "fuck me",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "badword",
+                                                                                                                                "value" : "\"fuck\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 4
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "fuck off",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "badword",
+                                                                                                                                "value" : "\"fuck\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 4
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "fuck you",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "badword",
+                                                                                                                                "value" : "\"fuck\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 4
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "get me some memes",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"ShowMeme\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "get me something funny",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"ShowMeme\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "help me please"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "help please"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "hey"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "hey! How are you doing?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "greetings",
+                                                                                                                                "value" : "\"true\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askWellness\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "heyo"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "hi"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "hiyo"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "hola",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "greetings",
+                                                                                                                                "value" : "\"hola\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 4
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "how hard can you make me laugh",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"ShowMeme\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "make me laugh"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "make my dad laugh",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"ShowMeme\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "meme"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "need food",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"food\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 5,
+                                                                                                                                "end" : 9
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "nomeme",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "nomeme",
+                                                                                                                                "value" : "\"nomeme\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 6
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "nomemes",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "nomeme",
+                                                                                                                                "value" : "\"nomemes\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 7
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "oye",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "greetings",
+                                                                                                                                "value" : "\"true\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "shit on me",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"vulger\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me a meme"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me some memes"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me some memes "
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me some place I can find food",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"show me some place I can find food\"",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 34
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me something funny"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me something so I can laugh"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me taco shops ",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me taco shops in Japan",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 8,
+                                                                                                                                "end" : 12
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "location",
+                                                                                                                                "value" : "\"Japan\"",
+                                                                                                                                "start" : 22,
+                                                                                                                                "end" : 27
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me taco shops in London",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 8,
+                                                                                                                                "end" : 12
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "location",
+                                                                                                                                "value" : "\"London\"",
+                                                                                                                                "start" : 22,
+                                                                                                                                "end" : 28
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me taco shops in New York",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 8,
+                                                                                                                                "end" : 12
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "location",
+                                                                                                                                "value" : "\"New York\"",
+                                                                                                                                "start" : 22,
+                                                                                                                                "end" : 30
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me taco shops in tokyo",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 8,
+                                                                                                                                "end" : 12
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "location",
+                                                                                                                                "value" : "\"tokyo\"",
+                                                                                                                                "start" : 22,
+                                                                                                                                "end" : 27
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me the best taco places ",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 17,
+                                                                                                                                "end" : 21
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me the best taco shop in london",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"BestTacoShop\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 17,
+                                                                                                                                "end" : 21
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "location",
+                                                                                                                                "value" : "\"london\"",
+                                                                                                                                "start" : 30,
+                                                                                                                                "end" : 36
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "show me the best taco shops in SF",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"BestTacoShop\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 17,
+                                                                                                                                "end" : 21
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "location",
+                                                                                                                                "value" : "\"SF\"",
+                                                                                                                                "start" : 31,
+                                                                                                                                "end" : 33
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "suck it fuckker",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "badword",
+                                                                                                                                "value" : "\"fuck\"",
+                                                                                                                                "start" : 8,
+                                                                                                                                "end" : 12
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "suck your ass",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "suck your dick",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "suggest me taco shops",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 11,
+                                                                                                                                "end" : 15
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "taco places in New york"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "taco places in town",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 4
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "taco places near me",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 4
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "taco shops in SF",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 4
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "taco shops in town",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 0,
+                                                                                                                                "end" : 4
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "taco shops near me"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "tell me about yourself",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askBotsStory\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "tell me where I can find tacos",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 25,
+                                                                                                                                "end" : 30
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "tell me you're story",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askBotsStory\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "what's your story?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askBotsStory\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "where can I find good tacos?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 22,
+                                                                                                                                "end" : 27
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "where can I find taco shops in tokyo?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 17,
+                                                                                                                                "end" : 21
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "location",
+                                                                                                                                "value" : "\"tokyo\"",
+                                                                                                                                "start" : 31,
+                                                                                                                                "end" : 36
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "where can I find taco shops?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"taco\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 17,
+                                                                                                                                "end" : 21
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "where can I find tacos?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"showTacoLoc\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "food",
+                                                                                                                                "value" : "\"tacos\"",
+                                                                                                                                "role" : "taco",
+                                                                                                                                "start" : 17,
+                                                                                                                                "end" : 22
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "where can I find the best tacos"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "will you travel the world with me?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askingOut\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "yo"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "yo! You doing good?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "greetings",
+                                                                                                                                "value" : "\"true\""
+                                                                                                                              },
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askWellness\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "you fucking scumbag",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"curse\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "you okay?",
+                                                                                                                            "entities" : [
+                                                                                                                              {
+                                                                                                                                "entity" : "intent",
+                                                                                                                                "value" : "\"askWellness\""
+                                                                                                                              }
+                                                                                                                            ]
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                            "text" : "zup"
+                                                                                                                          }
+                                                                                                                        ]
+                                                                                                                      }

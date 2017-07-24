@@ -9,3 +9,7 @@ Still in development :)
 
 
 https://senorbotto.herokuapp.com/
+
+# About traing data
+
+It's open source and can be used for anything you want! Just zip it and import it on wit.ai 

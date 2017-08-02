@@ -69,32 +69,40 @@ def get_taco_shops(recipient_id,keys):
 
 # this function detects the response type and sends a message
 def parse_user_message(recipient_id,text):
-    message = "I couldn't understand you!"
+    # get the intent of the users message
     witresp = witbot.message(text)
-    intents = witresp['entities']['intent'][0]['value']
-    confidenceScore = witresp['entities']['intent'][0]['confidence']
-    if 'entities' in witresp.keys():
-        keys = witresp['entities'].keys()
-        if confidenceScore > 5.0 and 'greet' == intents:
-            # sending some greetings
-            send_greetings(recipient_id)
-        elif confidenceScore > 5.0 and 'showTacoLoc' == intents:
-            # get_taco_shops() is called when the user requests for tacos. That's
-            # when the showTacoLoc entitie is found
-            get_taco_shops(recipient_id,keys)
-        elif confidenceScore > 5.0 and 'ShowMeme' == intents:
-            bot.send_text_message(recipient_id,"Okay! This is what I found.👀🎞")
-            send_funny_gif(recipient_id)
-            # show the `show more` button and `not now` button
-            reply_options = (["Show More","ShowMeme"],["Not now tacos","nomeme"],)
-            reply_payload = create_quickreply_payload(reply_options)
-            send_quick_replies(recipient_id,"what next?",reply_payload)
-        elif "nomeme" in keys:
-            bot.send_text_message(recipient_id, "Okay cool! I'll make you laugh someother time")
-        else:
-            # show the options and an error message
-            reply_options = (["eat","eating"],["read about tacos","reading"],["memes","meme"])
-            send_quick_replies(recipient_id,"Sorry, I didn't get you! Select something from the options below",reply_options)
+    # get the intent and confidenceScore only if the condition is True
+    if "intent" in witresp['entities'].keys():
+        intents = witresp['entities']['intent'][0]['value']
+        confidenceScore = witresp['entities']['intent'][0]['confidence']
+        # call the func to respond to the user
+        respond_to_user(witresp,intents,confidenceScore,recipient_id)
+    else:
+        bot.send_text_message(recipient_id, "Sorry I don't know what to say!")
+
+def respond_to_user(witresp,intents,confidenceScore,recipient_id):
+    #if 'entities' in witresp.keys():
+    keys = witresp['entities'].keys()
+    if confidenceScore > 5.0 and 'greet' is intents:
+    # sending some greetings
+        send_greetings(recipient_id)
+    elif confidenceScore > 5.0 and 'showTacoLoc' is intents:
+        # get_taco_shops() is called when the user requests for tacos. That's
+        # when the showTacoLoc entitie is found
+        get_taco_shops(recipient_id,keys)
+    elif confidenceScore > 5.0 and 'ShowMeme' is intents:
+        bot.send_text_message(recipient_id,"Okay! This is what I found.👀🎞")
+        send_funny_gif(recipient_id)
+        # show the `show more` button and `not now` button
+        reply_options = (["Show More","ShowMeme"],["Not now tacos","nomeme"],)
+        reply_payload = create_quickreply_payload(reply_options)
+        send_quick_replies(recipient_id,"what next?",reply_payload)
+    elif "nomeme" in keys:
+        bot.send_text_message(recipient_id, "Okay cool! I'll make you laugh someother time")
+    else:
+        # show the options and an error message
+        reply_options = (["eat","eating"],["read about tacos","reading"],["memes","meme"],["do stuff","something"])
+        send_quick_replies(recipient_id,"Sorry, I didn't get you! Select something from the options below",reply_options)
 
 
 def create_quickreply_payload(qk_payload):
@@ -102,7 +110,7 @@ def create_quickreply_payload(qk_payload):
     # pass in a tuple-of-list / list-of-lists
     # example : (['title1','payload'],['title2','payload'])
     quick_btns = []
-    for i in range(len(qk)):
+    for i in range(len(qk_payload)):
         quick_btns.append(
             {
                 "content_type":"text",
@@ -114,7 +122,7 @@ def create_quickreply_payload(qk_payload):
 
 def send_quick_replies(recipient_id,quick_reply_message,reply_options):
     # sends the quick reply button
-    reply_payload = create_quickreply_payload(qk_btn_rep)
+    reply_payload = create_quickreply_payload(reply_options)
     botutils.send_quickreply(token = ACCESS_TOKEN,
         user_id = recipient_id,
         text = "{}".format(quick_reply_message),

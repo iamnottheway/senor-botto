@@ -55,18 +55,6 @@ def recieve_incoming_messages():
                     pass
         return "Success"
 
-def send_greetings(recipient_id):
-    # sends random greetings to the user when the user responds with a greet-word
-    greet_list = ["Hola Amigo","Oye Amigo","Hello","Hey","Hi"]
-    Botresp = ", how can I help you?🤖🌮"
-    message = "{}".format(greet_list[random.randint(0,len(greet_list)-1)]) + Botresp
-    bot.send_text_message(recipient_id, message)
-
-def get_taco_shops(recipient_id,keys):
-    message = "Taco shops near you🌮🌮"
-    bot.send_text_message(recipient_id, message)
-    Show_taco_location(recipient_id,keys=keys)
-
 # this function detects the response type and sends a message
 def parse_user_message(recipient_id,text):
     # get the intent of the users message
@@ -78,33 +66,59 @@ def parse_user_message(recipient_id,text):
         # call the func to respond to the user
         respond_to_user(witresp,intents,confidenceScore,recipient_id)
     else:
-        bot.send_text_message(recipient_id, "Sorry I don't know what to say!")
+        show_error_message(recipient_id)
 
 def respond_to_user(witresp,intents,confidenceScore,recipient_id):
     #if 'entities' in witresp.keys():
+    intent_list = [intents]
     keys = witresp['entities'].keys()
-    if confidenceScore > 5.0 and 'greet' is intents:
+    if 'greet' in intent_list:
     # sending some greetings
         send_greetings(recipient_id)
-    elif confidenceScore > 5.0 and 'showTacoLoc' is intents:
+    elif 'showTacoLoc' in intent_list:
         # get_taco_shops() is called when the user requests for tacos. That's
         # when the showTacoLoc entitie is found
         get_taco_shops(recipient_id,keys)
-    elif confidenceScore > 5.0 and 'ShowMeme' is intents:
+        show_more_options(recipient_id)
+    elif 'ShowMeme' in intent_list:
         bot.send_text_message(recipient_id,"Okay! This is what I found.👀🎞")
         send_funny_gif(recipient_id)
         # show the `show more` button and `not now` button
-        reply_options = (["Show More","ShowMeme"],["Not now tacos","nomeme"],)
+        reply_options = (["Show me MORE!😆","ShowMeme"],["I'm good🙂","nomeme"],)
         reply_payload = create_quickreply_payload(reply_options)
         send_quick_replies(recipient_id,"what next?",reply_payload)
-    elif "nomeme" in keys:
-        bot.send_text_message(recipient_id, "Okay cool! I'll make you laugh someother time")
     else:
         # show the options and an error message
-        reply_options = (["eat","eating"],["read about tacos","reading"],["memes","meme"],["do stuff","something"])
-        send_quick_replies(recipient_id,"Sorry, I didn't get you! Select something from the options below",reply_options)
+        show_error_message(recipient_id)
 
 
+def send_greetings(recipient_id):
+    # sends random greetings to the user when the user responds with a greet-word
+    greet_list = ["Hola Amigo","Oye Amigo","Hello","Hey","Hi"]
+    Botresp = ", how can I help you?🤖🌮"
+    message = "{}".format(greet_list[random.randint(0,len(greet_list)-1)]) + Botresp
+    reply_options = (
+                    ["Taco restuarants🍽🌮🍥","eating"],
+                    ["Taco recipes📖🌮","ShowTacoRecipes"],
+                    ["😄","ShowEmoji"],
+                 )
+    try:
+        send_quick_replies(recipient_id,message,reply_options)
+    except:
+        bot.send_text_message(recipient_id,message)
+
+
+
+def show_error_message(recipient_id):
+    # this function shows the user some options
+    reply_options = (["I want to eat😋","eating"],["read about tacos📖","reading"],["Make me laugh😆!!","ShowMeme"],["#TacosForever","something"])
+    send_quick_replies(recipient_id,"Sorry, I didn't get you! Select something from the options below",reply_options)
+
+def show_more_options(recipient_id):
+    reply_options = (["food😋","eating"],["Top taco recipes📖","reading"],["Gifs🖼","ShowMeme"])
+    send_quick_replies(recipient_id,"What do you want to do next?",reply_options)
+
+# quick replies
 def create_quickreply_payload(qk_payload):
     # this function constructs and returns a payload for the the quick reply button payload
     # pass in a tuple-of-list / list-of-lists
@@ -122,12 +136,19 @@ def create_quickreply_payload(qk_payload):
 
 def send_quick_replies(recipient_id,quick_reply_message,reply_options):
     # sends the quick reply button
+    # automatically constructs the payload for the buttons from the list
     reply_payload = create_quickreply_payload(reply_options)
     botutils.send_quickreply(token = ACCESS_TOKEN,
         user_id = recipient_id,
         text = "{}".format(quick_reply_message),
         reply_payload = reply_payload,
     )
+
+# functions for tacos
+def get_taco_shops(recipient_id,keys):
+    message = "Taco shops near you🌮🌮"
+    bot.send_text_message(recipient_id, message)
+    Show_taco_location(recipient_id,keys=keys)
 
 def Show_taco_location(recipient_id,keys):
     # this function sends the taco shops near the user
@@ -137,6 +158,7 @@ def Show_taco_location(recipient_id,keys):
     message = "tacocoo"
     bot.send_text_message(recipient_id, message)
 
+# funny area
 def send_funny_gif(recipient_id):
     # select a gif at random and send
     image_url_list = botutils.search_gifs(credentials['TENOR_API'],"taco")

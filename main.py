@@ -17,6 +17,11 @@ credentials = {
 
 
 
+
+
+#____________________________________________________________________________________________
+
+
 app = Flask(__name__)
 # set up messenger wrapper
 bot = Bot(ACCESS_TOKEN)
@@ -85,6 +90,7 @@ def respond_back(recipient_id,user_payload,user_message):
         # so that the function is executed
         user_payload = "@ShowTaco"
 
+
 def Show_getStartedBtn(user_id):
     intro_message = """ Hola amigo! I'm Senor botto🌮. I can show you some of the best taco restuarants in your city🍽! Or tell you a joke or show something funny.
                     """
@@ -96,35 +102,38 @@ def AskUserLocation(recipient_id):
     botutils.Ask_user_location(recipient_id)
 
 def SearchTacoVendor(recipient_id):
-    bot.send_text_message(recipient_id,"Showing Taco locations")
+    
     element_data_list = []
     global location
     get_food = ZomatoApi(credentials['API_KEY'])
-    food_results = get_food.search(location['lat'],location['long'],2,5)
-    #print(food_results)
+    food_results = get_food.search(location['lat'],location['long'],5,8)
     packed_results = get_food.packDetails(food_results)
-    #print(packed_results)
-    #print(location)
-    food_data_list = []
+    if len(packed_results) == 0:
+        bot.send_text_message(recipient_id,"Couldn't find anything in your area🍁.")
+        location = "none"
+    else:
+        food_data_list = []
+        # building the restaurant data here and packing it into a list
+        for restaurant_num in range(len(packed_results)):
+            # combines cost and ratings in a string. Displayed with address
+            sub_detail_str = "{0} Ratings:{1} Cost:{2}".format(packed_results[restaurant_num][3],
+                                                        packed_results[restaurant_num][2],
+                                                        packed_results[restaurant_num][4]
+                )
+            # the data is appended to the list
+            food_data_list.append({"data":(packed_results[restaurant_num][0],
+                                           packed_results[restaurant_num][1],
+                                           sub_detail_str,
+                                           "www.google.com"
+                )})
 
-    # building the restaurant data here and packing it into a list
-    for restaurant_num in range(len(packed_results)):
-        sub_detail_str = "{0} Ratings:{1} Cost:{2}".format(packed_results[restaurant_num][3],
-                                                    packed_results[restaurant_num][2],
-                                                    packed_results[restaurant_num][4]
-            )
-        food_data_list.append({"data":(packed_results[restaurant_num][0],
-                                       packed_results[restaurant_num][1],
-                                       sub_detail_str,
-                                       "www.google.com"
-            )})
+        bot.send_text_message(recipient_id,"Here's what I've found")
+        ele_payload = ({
+                            "element_data":food_data_list,
+                            "button_data":[{"data":["www.google.com","Learn more🌮"]}]
+                        })
+        botutils.generic_button_send(recipient_id,ele_payload)
 
-    #print(food_data_list['element_data'][0]['data'])
-    ele_payload = ({
-                        "element_data":[food_data_list],
-                        "button_data":[{"data":["www.google.com","eat!"]}]
-                    })
-    botutils.generic_button_send(recipient_id,ele_payload)
 
 
 def ignore_func(recipient_id):

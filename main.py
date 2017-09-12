@@ -2,24 +2,13 @@ from flask import Flask
 from flask import request
 from pymessenger.bot import Bot
 from credentials import credentials
-from zomatowrap import ZomatoApi
+import get_food_data  # yelp
 import botutils
 
 
 # import credential keys
 ACCESS_TOKEN = credentials['ACCESS_TOKEN']
 VERIFY_TOKEN = credentials['VERIFY_TOKEN']
-
-credentials = {
-                # zomato api key to access taco resturant data
-                "API_KEY":""
-}
-
-
-
-
-
-#____________________________________________________________________________________________
 
 
 app = Flask(__name__)
@@ -49,7 +38,7 @@ location = "none"
 # recieve messages and pass it to some function which parses it further
 @app.route('/testbot',methods=['POST'])
 def recieve_incoming_messages():
-    global location 
+    global location
     # just chilling babe!
     if request.method == "POST":
         output = request.get_json()
@@ -86,12 +75,15 @@ def respond_back(recipient_id,user_payload,user_message):
     """
     global location
     if location is not "none":
-        # if location has some value set the new payload 
+        # if location has some value set the new payload
         # so that the function is executed
         user_payload = "@ShowTaco"
 
 
+
 def Show_getStartedBtn(user_id):
+    global location
+    location = "none"
     intro_message = """ Hola amigo! I'm Senor botto🌮. I can show you some of the best taco restuarants in your city🍽! Or tell you a joke or show something funny.
                     """
     bot.send_text_message(user_id,intro_message)
@@ -102,12 +94,10 @@ def AskUserLocation(recipient_id):
     botutils.Ask_user_location(recipient_id)
 
 def SearchTacoVendor(recipient_id):
-    
     element_data_list = []
-    global location
-    get_food = ZomatoApi(credentials['API_KEY'])
-    food_results = get_food.search(location['lat'],location['long'],5,8)
-    packed_results = get_food.packDetails(food_results)
+    global location # location is a dict
+    food_data = get_food_data.yelp_search(coords=(location['long'],location['lat'])) # init with key. Done internally
+    packed_results = get_food_data.get_res_info(food_data)
     if len(packed_results) == 0:
         bot.send_text_message(recipient_id,"Couldn't find anything in your area🍁.")
         location = "none"
@@ -116,13 +106,12 @@ def SearchTacoVendor(recipient_id):
         # building the restaurant data here and packing it into a list
         for restaurant_num in range(len(packed_results)):
             # combines cost and ratings in a string. Displayed with address
-            sub_detail_str = "{0} Ratings:{1} Cost:{2}".format(packed_results[restaurant_num][3],
-                                                        packed_results[restaurant_num][2],
-                                                        packed_results[restaurant_num][4]
+            sub_detail_str = "{0}, Ratings:{1}".format(packed_results[restaurant_num][4],
+                                                        packed_results[restaurant_num][1],
                 )
             # the data is appended to the list
             food_data_list.append({"data":(packed_results[restaurant_num][0],
-                                           packed_results[restaurant_num][1],
+                                           packed_results[restaurant_num][3],
                                            sub_detail_str,
                                            "www.google.com"
                 )})
@@ -135,9 +124,7 @@ def SearchTacoVendor(recipient_id):
         botutils.generic_button_send(recipient_id,ele_payload)
 
 
-
 def ignore_func(recipient_id):
-    print("ok")
     r = botutils.get_payment(recipient_id)
     print(r.json())
 

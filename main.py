@@ -1,7 +1,8 @@
 from flask import Flask
 from flask import request
 from pymessenger.bot import Bot
-from credentials import credentials
+from credentials import credentials,db_creds
+from pymongo import MongoClient
 import get_food_data  # yelp
 import botutils
 
@@ -9,6 +10,66 @@ import botutils
 # import credential keys
 ACCESS_TOKEN = credentials['ACCESS_TOKEN']
 VERIFY_TOKEN = credentials['VERIFY_TOKEN']
+
+# init db
+db_username = db_creds['user_name']
+db_password = db_creds['password']
+db_appname  = db_creds['app_name']
+client = MongoClient('mongodb://{0}:{1}@ds141464.mlab.com:41464/{2}'.format(db_username,db_password,db_appname))
+db = client[db_appname]
+# db collection
+users = db.senorbottousers
+
+def get_user_from_db(db_userId,searchKey):
+    """ Looks for the specified user in the db and then queries
+        the searchKey in it. SearchKey should match any of the doc
+        inside a collection. Use to get the current value in any doc.
+    """
+    key = None
+    __user_cursor = users.find({"user_id":db_userId}).limit(1)
+    for _u in __user_cursor:
+        key = _u[searchKey]
+    return key
+
+def db_update_document(db_userId,update_list):
+    """ Updates a specified doc containing the matched userId with some info.
+        Second arg is a list having 2 value ['key','value']
+    """
+    users.update({'user_id':db_userId},{'$set':{'{}'.format(update_list[0]):update_list[1]}})
+
+def db_update_and_increment(db_userId,dockey):
+    """ Updates the current docKey value by +1"""
+    users.update_one({'user_id':db_userId},{'$inc':{'{}'.format(dockey):1}},upsert=True)
+
+#___________________________________________________________________________________________
+
+class Flow(object):
+    """ class that maps functions to key words. Here key words are the payload
+         keys set in the request/payload builder
+    """
+    def __init__( self, user_payload,flow_payload):
+        self.user_payload = user_payload
+        self.flow_payload = flow_payload
+
+    def key_lookup_and_call(self,user_id):
+        """ Looks for the user_payload key in the flow_payload
+              Then checks if the user_payload is equal,  if true calls
+              the function which is mapped to the user_payload
+
+              flow_dict format :
+
+              { 'payload': function_reference,....}
+        """
+        self.user_id = user_id
+        for dict_key in self.flow_payload.keys():
+            if dict_key == self.user_payload:
+                self.flow_payload[dict_key](self.user_id)
+
+
+
+
+
+#____________________________________________________________________________________________
 
 
 app = Flask(__name__)
@@ -34,11 +95,11 @@ def webhook():
             # let the invalid verify pass silently
             pass
 
-location = "none"
+
 # recieve messages and pass it to some function which parses it further
 @app.route('/testbot',methods=['POST'])
 def recieve_incoming_messages():
-    global location
+    location = "none"
     # just chilling babe!
     if request.method == "POST":
         output = request.get_json()
@@ -62,6 +123,7 @@ def recieve_incoming_messages():
                             if x['message']['attachments'][0].get('payload'):
                                 if x['message']['attachments'][0]['payload'].get('coordinates'):
                                     location = x['message']['attachments'][0]['payload']['coordinates']
+                                    db_update_document(recipient_id,["location",location])
                     if x.get('postback'):  # for postback getstarted button
                         recipient_id = x['sender']['id']
                         if x['postback'].get('payload'):
@@ -73,17 +135,41 @@ def recieve_incoming_messages():
 def respond_back(recipient_id,user_payload,user_message):
     """
     """
-    global location
+    location = get_user_from_db(recipient_id,"location")
     if location is not "none":
         # if location has some value set the new payload
         # so that the function is executed
         user_payload = "@ShowTaco"
 
+    flow_dict = {
+                    "@get_started": Show_getStartedBtn,
+                    "@joke":ignore_func,
+                    "@taco":AskUserLocation,
+                    "@ShowTaco":SearchTacoVendor,
+
+
+    }
+
+    if len(user_message) >= 0:
+        # use the flow class
+        flow = Flow(user_payload, flow_dict)
+        # calls the matched function from the dict
+        flow.key_lookup_and_call(recipient_id)
 
 
 def Show_getStartedBtn(user_id):
-    global location
-    location = "none"
+    # add the user to the database if the user doesnt exsit
+    cursor_count = users.find({"user_id":user_id}).limit(1).count()
+    # user is added to the DB only ones so if the user is in the db this clause is
+    # not executed.
+    if cursor_count == 0:
+        user_info = {
+                    'user_id':user_id,
+                    'location':'none',
+        }
+        users.insert_one(user_info)
+    # set location to None when the bot shows the intro_message
+    db_update_document(recipient_id,["location","none"])
     intro_message = """ Hola amigo! I'm Senor botto🌮. I can show you some of the best taco restuarants in your city🍽! Or tell you a joke or show something funny.
                     """
     bot.send_text_message(user_id,intro_message)
@@ -95,12 +181,13 @@ def AskUserLocation(recipient_id):
 
 def SearchTacoVendor(recipient_id):
     element_data_list = []
-    global location # location is a dict
+    location = get_user_from_db(recipient_id,"location") # location is a dict
     food_data = get_food_data.yelp_search(coords=(location['long'],location['lat'])) # init with key. Done internally
     packed_results = get_food_data.get_res_info(food_data)
     if len(packed_results) == 0:
         bot.send_text_message(recipient_id,"Couldn't find anything in your area🍁.")
-        location = "none"
+        #update the location to none
+        db_update_document(recipient_id,["location","none"])
     else:
         food_data_list = []
         # building the restaurant data here and packing it into a list
@@ -122,6 +209,8 @@ def SearchTacoVendor(recipient_id):
                             "button_data":[{"data":["www.google.com","Learn more🌮"]}]
                         })
         botutils.generic_button_send(recipient_id,ele_payload)
+        #update the location to none so that the user doesnt see this again when the start over btn is pressed
+        db_update_document(recipient_id,["location","none"])
 
 
 def ignore_func(recipient_id):

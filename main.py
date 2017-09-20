@@ -5,6 +5,7 @@ from credentials import credentials,db_creds
 from pymongo import MongoClient
 import get_food_data  # yelp
 import botutils
+import random
 
 
 # import credential keys
@@ -44,6 +45,7 @@ def db_update_and_increment(db_userId,dockey):
     users.update_one({'user_id':db_userId},{'$inc':{'{}'.format(dockey):1}},upsert=True)
 
 #___________________________________________________________________________________________
+
 
 
 #____________________________________________________________________________________________
@@ -120,7 +122,7 @@ def respond_back(recipient_id,user_payload,user_message):
         # so that the function is executed
         user_payload = "@ShowTaco"
 
-    
+
 def Show_getStartedBtn(user_id):
     # set location to None when the bot shows the intro_message
     # db_update_document(recipient_id,["location",'none'])
@@ -129,7 +131,9 @@ def Show_getStartedBtn(user_id):
     intro_message = """ Hola amigo! I'm Senor botto🌮. I can show you some of the best taco restuarants in the US🍽! Just tap the button below.
                     """
     bot.send_text_message(user_id,intro_message)
-    reply_options = [("I want to eat","@taco"),("Make me laugh","@joke")]
+    emoji_list = ['😆','😛','🙌🌮','😂','😋','😉','😜']
+    x = random.randint(0,len(emoji_list)-1)
+    reply_options = [("I want to eat","@taco"),(emoji_list[x],"@emoji")]
     botutils.QuickReply_SendButtons(user_id, "What do you want to do?👇", reply_options)
 
 def AskUserLocation(recipient_id):
@@ -157,16 +161,18 @@ def SearchTacoVendor(recipient_id):
                                                             packed_results[restaurant_num][1],
                     )
                 # the data is appended to the list
-                food_data_list.append({"data":(packed_results[restaurant_num][0],
+                food_data_list.append(
+                                    {"data":
+                                              (packed_results[restaurant_num][0],
                                                packed_results[restaurant_num][3],
                                                sub_detail_str,
-                                               "www.google.com"
-                    )})
+                                               "www.google.com"),
+                                       "button":["https://www.google.co.in/search?source=hp&q={}".format(packed_results[restaurant_num][0]),"Learn Now"],
+                                      })
 
             bot.send_text_message(recipient_id,"Here's what I've found")
             ele_payload = ({
                                 "element_data":food_data_list,
-                                "button_data":[{"data":["https://www.google.co.in/search?source=hp&q={}".format(packed_results[restaurant_num][0]),"Learn more🌮"]}]
                             })
             botutils.generic_button_send(recipient_id,ele_payload)
             #update the location to none so that the user doesnt see this again when the start over btn is pressed
@@ -176,11 +182,23 @@ def SearchTacoVendor(recipient_id):
         print("returning none type")
 
 
-def ignore_func(recipient_id):
-    r = botutils.get_payment(recipient_id)
-    print(r.json())
+def emoji_func(recipient_id):
+    # emoji function to randomize and send emojis
+    emoji_list = ['😆','😛','🙌🌮','😂','😋','😉','😜']
+    x = random.randint(0,len(emoji_list)-1)
+    bot.send_text_message(recipient_id,emoji_list[x])
+    reply_options = [("I want to eat","@taco"),(emoji_list[x],"@emoji")]
+    botutils.QuickReply_SendButtons(recipient_id, "What do you want to do?👇", reply_options)
 
+def about_bot_func(recipient_id):
+    about_info = """Senor Botto helps people to find taco restaurants in the US🌮🇺🇸.It uses Yelp API to search for restaurants in a given city. Currently Senor Botto shows restaurants that are in the US. The creator of this bot will expand to other parts of the world🙌!
+    """
+    bot.send_text_message(recipient_id,about_info)
+    reply_options = [("I want to eat","@taco"),("Nothing","@nothing")]
+    botutils.QuickReply_SendButtons(recipient_id, "What do you want to do?👇", reply_options)
 
+def nothing_func(recipient_id):
+    bot.send_text_message(recipient_id,"I'm doing nothing😵😵😜")
 
 if __name__ == '__main__':
     app.run(debug=True,port=8080,threaded=True)

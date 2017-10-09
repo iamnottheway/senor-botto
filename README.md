@@ -6,7 +6,6 @@ Senor Botto is a messenger bot the helps people to find taco restaurants in thei
 
 Try the bot here: http://m.me/1916711305258472
 
-:hammer_and_wrench::robot:
 
 
 https://senorbotto.herokuapp.com/

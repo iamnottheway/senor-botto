@@ -1,7 +1,10 @@
 # Senor botto - A bot who loves tacos:taco:
 
+It's LIVE!🌮
+
 Senor Botto is a messenger bot the helps people to find taco restaurants in their city or anywhere on earth.
-Still in development :)
+
+Try the bot here: http://m.me/1916711305258472
 
 :hammer_and_wrench::robot:
 
